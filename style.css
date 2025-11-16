@@ -1,0 +1,141 @@
+/* Hilangkan scroll total */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background aesthetic */
+body {
+    background: linear-gradient(135deg, #ffe8d9, #ffeef6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Fade-in smooth */
+.fade-in {
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Container tidak dipaksa full 1 layar */
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    padding-top: 40px; /* biar semua elemen turun rapi */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title {
+    font-size: clamp(22px, 5vw, 30px);
+    color: #444;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+/* Foto estetik */
+.main-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+    margin-bottom: 15px;
+}
+
+/* Pesan – awalnya disembunyikan */
+.message {
+    margin-top: 16px;
+    font-size: clamp(15px, 4vw, 17px);
+    color: #444;
+    line-height: 1.7;
+    max-width: 92%;        /* teks lebih lebar & rapi */
+    display: none;
+
+    text-align: center;
+
+    white-space: pre-line;
+
+    word-break: keep-all;      /* cegah kata patah aneh */
+    overflow-wrap: break-word; /* pecah jika memang terlalu panjang */
+
+    padding-left: 10px;        
+    padding-right: 10px;       /* bikin kolom teks halus dan simetris */
+}
+
+/* Tombol "Lihat Pesan" */
+.lihat-pesan-btn {
+    margin-top: 12px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    /* warna soft peach */
+    background: #ffe6c7;
+    color: #444;
+
+    box-shadow: 0 6px 18px rgba(255, 173, 96, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.3s ease;
+    z-index: 1;
+}
+
+.lihat-pesan-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 12px rgba(255, 173, 96, 0.35);
+}
+
+/* Floating hearts */
+.hearts::before,
+.hearts::after {
+    content: "❤";
+    position: fixed;
+    font-size: 20px;
+    color: rgba(255, 90, 120, 0.35);
+    animation: floatUp 6s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hearts::before {
+    left: 20%;
+    bottom: -30px;
+    animation-duration: 7s;
+}
+
+.hearts::after {
+    left: 70%;
+    bottom: -30px;
+    animation-duration: 5s;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.5; }
+    100% { transform: translateY(-120vh) scale(1.4); opacity: 0; }
+}
+
+/* HP kecil */
+@media (max-width: 400px) {
+    .main-photo {
+        border-radius: 18px;
+    }
+    .message {
+        font-size: 15px;
+    }
+}

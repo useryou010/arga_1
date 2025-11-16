@@ -1,18 +1,20 @@
-/* Hilangkan scroll total */
+/* IZINKAN SCROLL */
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
+    height: auto;          /* biarkan menyesuaikan isi */
+    overflow-y: auto;      /* scroll aktif */
     font-family: 'Poppins', sans-serif;
 }
 
 /* Background aesthetic */
 body {
     background: linear-gradient(135deg, #ffe8d9, #ffeef6);
+
+    /* ❗ Hapus align-center full karena bikin konten tidak bisa panjang */
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center;  <-- HAPUS supaya bisa scroll */
     text-align: center;
 }
 
@@ -26,12 +28,12 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Container tidak dipaksa full 1 layar */
+/* Container bisa memanjang */
 .container {
     width: 100%;
     max-width: 480px;
     padding: 20px;
-    padding-top: 40px; /* biar semua elemen turun rapi */
+    padding-top: 40px;
     box-sizing: border-box;
 
     display: flex;
@@ -57,27 +59,27 @@ body {
     margin-bottom: 15px;
 }
 
-/* Pesan – awalnya disembunyikan */
+/* Pesan */
 .message {
     margin-top: 16px;
     font-size: clamp(15px, 4vw, 17px);
     color: #444;
-    line-height: 1.7;
-    max-width: 92%;        /* teks lebih lebar & rapi */
+    line-height: 1.75;
+    max-width: 92%;
     display: none;
 
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-word;
 
-    white-space: pre-line;
-
-    word-break: keep-all;      /* cegah kata patah aneh */
-    overflow-wrap: break-word; /* pecah jika memang terlalu panjang */
-
-    padding-left: 10px;        
-    padding-right: 10px;       /* bikin kolom teks halus dan simetris */
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-/* Tombol "Lihat Pesan" */
+.message p {
+    margin-bottom: 14px;    /* jarak antar paragraf */
+}
+
+/* Tombol */
 .lihat-pesan-btn {
     margin-top: 12px;
     padding: 10px 22px;
@@ -87,7 +89,6 @@ body {
     font-weight: 600;
     cursor: pointer;
 
-    /* warna soft peach */
     background: #ffe6c7;
     color: #444;
 

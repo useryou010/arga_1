@@ -24,11 +24,11 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Container — sekarang yang handle center */
+/* Container */
 .container {
     width: 100%;
     max-width: 480px;
-    margin: 0 auto;              /* center */
+    margin: 0 auto;
     padding: 20px;
     padding-top: 40px;
     box-sizing: border-box;
@@ -44,7 +44,6 @@ body {
     margin-bottom: 18px;
     font-weight: 600;
 
-    /* underline lembut */
     padding-bottom: 6px;
     border-bottom: 2px solid rgba(255, 181, 181, 0.4);
     display: inline-block;
@@ -80,15 +79,12 @@ body {
 
 .message p {
     margin-bottom: 15px;
-
-    /* First-letter cantik */
     text-indent: 16px;
 }
 
+/* HAPUS efek first-letter sepenuhnya */
 .message p:first-letter {
-    font-size: 24px;
-    font-weight: 600;
-    color: #ff8da1;
+    all: unset;     /* reset semuanya */
 }
 
 /* Tombol */

@@ -2,19 +2,16 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: auto;          /* biarkan menyesuaikan isi */
-    overflow-y: auto;      /* scroll aktif */
+    height: auto;
+    overflow-y: auto;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Background aesthetic */
+/* Background aesthetic GRADIENT FULL */
 body {
     background: linear-gradient(135deg, #ffe8d9, #ffeef6);
-
-    /* ❗ Hapus align-center full karena bikin konten tidak bisa panjang */
-    display: flex;
-    justify-content: center;
-    /* align-items: center;  <-- HAPUS supaya bisa scroll */
+    background-size: cover;
+    background-attachment: fixed;
     text-align: center;
 }
 
@@ -23,12 +20,13 @@ body {
     animation: fadeIn 1.5s ease forwards;
     opacity: 0;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Container bisa memanjang */
+/* CONTAINER — tetap di tengah & bisa memanjang */
 .container {
     width: 100%;
     max-width: 480px;
@@ -36,6 +34,7 @@ body {
     padding-top: 40px;
     box-sizing: border-box;
 
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -49,22 +48,22 @@ body {
     font-weight: 600;
 }
 
-/* Foto estetik */
+/* FOTO */
 .main-photo {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 22px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
     margin-bottom: 15px;
 }
 
-/* Pesan */
+/* PESAN AESTHETIC */
 .message {
     margin-top: 16px;
     font-size: clamp(15px, 4vw, 17px);
     color: #444;
-    line-height: 1.75;
+    line-height: 1.8;
     max-width: 92%;
     display: none;
 
@@ -75,11 +74,12 @@ body {
     padding-right: 10px;
 }
 
+/* Jarak antar paragraf */
 .message p {
-    margin-bottom: 14px;    /* jarak antar paragraf */
+    margin-bottom: 14px;
 }
 
-/* Tombol */
+/* TOMBOL */
 .lihat-pesan-btn {
     margin-top: 12px;
     padding: 10px 22px;
@@ -102,7 +102,7 @@ body {
     box-shadow: 0 4px 12px rgba(255, 173, 96, 0.35);
 }
 
-/* Floating hearts */
+/* FLOATING HEARTS */
 .hearts::before,
 .hearts::after {
     content: "❤";

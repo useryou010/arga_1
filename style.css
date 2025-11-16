@@ -7,11 +7,9 @@ html, body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Background aesthetic GRADIENT FULL */
+/* Background aesthetic — tidak lagi flex agar gradasi rata */
 body {
     background: linear-gradient(135deg, #ffe8d9, #ffeef6);
-    background-size: cover;
-    background-attachment: fixed;
     text-align: center;
 }
 
@@ -26,18 +24,17 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* CONTAINER — tetap di tengah & bisa memanjang */
+/* Container — sekarang yang handle center */
 .container {
     width: 100%;
     max-width: 480px;
+    margin: 0 auto;              /* center */
     padding: 20px;
     padding-top: 40px;
     box-sizing: border-box;
 
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 
@@ -46,21 +43,26 @@ body {
     color: #444;
     margin-bottom: 18px;
     font-weight: 600;
+
+    /* underline lembut */
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(255, 181, 181, 0.4);
+    display: inline-block;
 }
 
-/* FOTO */
+/* Foto estetik */
 .main-photo {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 22px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.18);
     margin-bottom: 15px;
 }
 
-/* PESAN AESTHETIC */
+/* Pesan */
 .message {
-    margin-top: 16px;
+    margin-top: 18px;
     font-size: clamp(15px, 4vw, 17px);
     color: #444;
     line-height: 1.8;
@@ -72,14 +74,24 @@ body {
 
     padding-left: 10px;
     padding-right: 10px;
+
+    animation: fadeIn 1s ease forwards;
 }
 
-/* Jarak antar paragraf */
 .message p {
-    margin-bottom: 14px;
+    margin-bottom: 15px;
+
+    /* First-letter cantik */
+    text-indent: 16px;
 }
 
-/* TOMBOL */
+.message p:first-letter {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ff8da1;
+}
+
+/* Tombol */
 .lihat-pesan-btn {
     margin-top: 12px;
     padding: 10px 22px;
@@ -102,7 +114,7 @@ body {
     box-shadow: 0 4px 12px rgba(255, 173, 96, 0.35);
 }
 
-/* FLOATING HEARTS */
+/* Floating hearts */
 .hearts::before,
 .hearts::after {
     content: "❤";
@@ -133,10 +145,6 @@ body {
 
 /* HP kecil */
 @media (max-width: 400px) {
-    .main-photo {
-        border-radius: 18px;
-    }
-    .message {
-        font-size: 15px;
-    }
+    .main-photo { border-radius: 18px; }
+    .message { font-size: 15px; }
 }
